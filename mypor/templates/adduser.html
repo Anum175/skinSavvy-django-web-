@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Reset</title>
+    <style>
+        body {
+            background-color: #DC673E;
+            font-family: sans-serif, "Times New Roman";
+            color: #EAE5DA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            text-align: center;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #DC673E;
+            border-radius: 5px;
+            width:300px;
+        }
+        .form-container input[type="file"] {
+            padding: 5px;
+            width:300px;
+        }
+        .form-container button {
+            color: #DC673E;
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid #DC673E;
+            background-color: transparent;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .form-container button:hover {
+            background-color: #DC673E;
+            color: #EAE5DA;
+        }
+        h2{
+            color: #DC673E;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+<h2>ADD USER</h2>
+        <form action="{% url 'add_user' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="n" id="n" placeholder="Enter Username" required><br>
+            <input type="text" name="fn" id="fn" placeholder="Enter First Name" required><br>
+            <input type="text" name="ln" id="ln" placeholder="Enter Last Name" required><br>
+            <input type="email" name="e" id="e" placeholder="Enter Email" required><br>
+            <input type="password" name="p" id="p" placeholder="Enter Password" required><br>
+            <input type="file" name="f" id="f" style="width: 100%;" required><br>
+            <button type="submit">Submit</button>
+            <a href="{% url 'admin_panel' %}"> Back</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+    <style>
+        body {
+            background-color:#DC673E ;
+            font-family: sans-serif, "Times New Roman";
+            color: #DC673E;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #EAE5DA;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            color: #DC673E;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #DC673E;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #DC673E;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #b85430;
+        }
+        a {
+            color: #DC673E;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Update User</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="fn">First Name:</label>
+            <input type="text" name="fn" id="fn" value="{{ user.first_name }}" required><br>
+
+            <label for="ln">Last Name:</label>
+            <input type="text" name="ln" id="ln" value="{{ user.last_name }}" required><br>
+
+            <label for="e">Email:</label>
+            <input type="email" name="e" id="e" value="{{ user.email }}" required><br>
+
+            <input type="hidden" name="i" id="i" value="{{ user.id }}">
+
+            <input type="submit" value="Update">
+        </form>
+        <a href="{% url 'admin_panel' %}">Back to Admin Panel</a>
+    </div>
+</body>
+</html>

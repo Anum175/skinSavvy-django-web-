@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        body {
+            background-color: #EAE5DA;
+            font-family: sans-serif, "Times New Roman";
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #DC673E;
+            width: 100%;
+            overflow: auto;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .navbar li {
+            list-style: none;
+        }
+
+        .navbar ul a {
+            color: #EAE5DA;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        .navbar ul li a:hover {
+            font-size:20px;
+
+        }
+
+        .typewriter {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #DC673E;
+        }
+
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid #EAE5DA;
+            white-space: nowrap;
+            font-size: 24px;
+            animation: typing 3s steps(40, end) infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .block {
+            background-color: #DC673E;
+            padding: 20px;
+            margin: 20px;
+            flex: 1;
+            width: 40%;
+            max-width: 400px;
+            border-radius: 10px;
+            justify-content:center;
+        }
+
+        .block h3 {
+            margin-top: 0;
+        }
+
+        .block p {
+            margin-bottom: 10px;
+        }
+
+        .block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .block a {
+            display: block;
+            background-color: #EAE5DA;
+            color: #DC673E;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight:bold;
+        }
+
+        .block a:hover {
+            background-color: #DC673E;
+            color: #FFFFFF;
+            font-size:22px;
+        }
+
+        .contact {
+            padding-right: 10px;
+        }
+
+        .store {
+            padding-left: 10px;
+        }
+
+        pre {
+            background-color: #DC673E;
+            color: #EAE5DA;
+            font-weight: bold;
+            text-align: center;
+            width: 90px;
+            font-size: 20px;
+            margin: 0 auto;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+
+        pre a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+  <header>
+      <nav class="navbar">
+          <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'blog' %}">Blogs</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'port' %}">Portfolio</a></li>
+            <li><a href="{% url 'logout' %}">Log out</a></li>
+          </ul>
+      </nav>
+  </header>
+
+  <div class="typewriter">
+      <h1>WELCOME TO SKINSAVVY</h1>
+  </div>
+
+  <div class="content">
+      <div class="block contact">
+          <h3>Contact a Dermatologist</h3>
+          <img src="https://plus.unsplash.com/premium_photo-1661771755944-5979a390ed75?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="doctor">
+          <p>Get personalized skincare advice from experts.</p>
+          <a href="#">Contact Now</a>
+      </div>
+      <div class="block store">
+          <h3>Shop Skincare Products</h3>
+          <img src="https://images.unsplash.com/photo-1516274626895-055a99214f08?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="store">
+          <p>Explore a wide range of skincare products.</p>
+          <a href="#">Shop Now</a>
+      </div>
+  </div>
+
+  <div class="content">
+      <p>At Healthy Skin Matters, we believe that taking care of your skin is essential for overall well-being. Our mission is to provide you with valuable information, tips, and resources to help you achieve and maintain healthy, glowing skin.</p>
+      <p>Whether you're dealing with acne, dryness, aging, or other skin concerns, we've got you covered. Explore our blogs, sign up for exclusive offers, and reach out to us for personalized skincare advice.</p>
+      <p>Your skin deserves the best care. Let's embark on this journey to beautiful, radiant skin together!</p>
+  </div>
+
+
+</body>
+</html>

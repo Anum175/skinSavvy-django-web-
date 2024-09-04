@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <style>
+        body {
+            background-color: #DC673E;
+            font-family: sans-serif, Times-New-Roman;
+            margin: 0;
+            padding: 0;
+            overflow:auto;
+        }
+        h2 {
+            color:#EAE5DA;
+            text-align:center;
+        }
+        .typewriter {
+            text-align: center;
+            margin-bottom: 40px;
+            color:#EAE5DA;
+        }
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em  #EAE5DA;
+            font-size: 24px;
+            animation: typing 3s steps(40, end);
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        .login-container {
+            position:absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 800px;
+            height: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #EAE5DA;
+         }
+
+        .login-form {
+            width: 300px; /* Adjust the width of the form as needed */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 10px;
+            gap: 10px;
+            text-align:center;
+            justify-content:center;
+
+        }
+
+        .login-image img {
+            max-width: 500px;
+            height: 390px;
+            border-radius: 10px;
+        }
+
+        .login-form input {
+            padding: 10px 15px;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            background-color: #DC673E;
+            font-size: 16px;
+            outline: none;
+            border-radius: 10px;
+        }
+        .login-form input::placeholder {
+            color: #EAE5DA;
+        }
+        .login-form input:focus {
+            border-bottom-color: #DC673E;
+            background-color: #FFFFFF;
+        }
+        .login-form button {
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background-color: #DC673E;
+            color: #EAE5DA;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 80%;
+        }
+        .login-form button:hover {
+            background-color: #EAE5DA;
+            color: #DC673E;
+            border: 3px solid #DC673E;
+            width: 90%;
+        }
+        .login-form a {
+            text-align: center;
+            color: #DC673E;
+            text-decoration: none;
+            margin-top: 10px;
+            background-color: #DC673E;
+            color: #EAE5DA;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .login-form a:hover {
+            text-decoration: underline;
+            background-color: #EAE5DA;
+            color: #DC673E;
+        }
+        pre {
+            color: #DC763E;
+            font-weight: bold;
+            text-align: center;
+        }
+        h3{
+        text-align:center;
+        color:#DC673E;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to skinSavvy</h2>
+    <div class="typewriter">
+        <h1>"Unlock the secrets to radiant skin with our expert skincare tips."</h1>
+    </div>
+
+    <div class="login-container">
+        <div class="login-image">
+            <img src="https://images.unsplash.com/photo-1516274626895-055a99214f08?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="store">
+        </div>
+
+        <div class="login-form">
+            {% if msg %}
+            <p style="color:red;">{{ msg }}</p>
+        {% endif %}
+            <form method="post">
+                <h3> LOGIN FORM </h3>
+                {% csrf_token %}
+                <input type="text" name="n" id="n" placeholder="Enter User name"><br><br>
+                <input type="password" name="p" id="p" placeholder="Enter Password"><br><br>
+                <button type="submit">Login</button>
+            </form>
+            <pre> Forgot password? <a href="{% url 'password_reset' %}">Reset password </a></pre>
+            <pre> Do not have an account? <a href="{% url 'signup' %}">Sign up</a></pre>
+        </div>
+    </div>
+</body>
+</html>

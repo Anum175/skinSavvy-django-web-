@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Reset</title>
+    <style>
+        body {
+            background-color: #EAE5DA;
+            font-family: sans-serif, "Times New Roman";
+            color: #DC673E;
+        }
+        button {
+            color: #DC673E;
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid #DC673E;
+        }
+        button:hover {
+            background-color: #DC673E;
+            color: #EAE5DA;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #DC673E;
+            margin-bottom: 20px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .form-container input[type="email"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #DC673E;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        .form-container button[type="submit"] {
+            background-color: #DC673E;
+            color: #FFFFFF;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .form-container button[type="submit"]:hover {
+            background-color: #b85430;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Password Reset</h2>
+        <form method="post">
+            {% csrf_token %}
+            <p>Enter your email address below to receive a password reset link.</p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Reset Password</button>
+        </form>
+    </div>
+</body>
+</html>

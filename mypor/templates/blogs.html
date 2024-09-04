@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Blogs</title>
+    <style>
+        body {
+            background-color: #EAE5DA;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #DC673E;
+            width: 100%;
+            overflow: auto;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .navbar li {
+            list-style: none;
+        }
+
+        .navbar ul a {
+            color: #EAE5DA;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        .navbar ul li a:hover {
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto 20px; /* Adjust for the navbar height */
+            padding: 20px;
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            font-size: 24px;
+            color: #DC673E;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'blog' %}">Blogs</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li><a href="{% url 'port' %}">Portfolio</a></li>
+                <li><a href="{% url 'blog' %}">Back</a></li>
+                <li><a href="{% static 'blog.pdf' %}">Next</a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Hello! Welcome to our blogs. Here is some important information which everybody should know about skin</h1>
+        <p>
+            The skin, our largest organ, serves as the body's protective barrier against external threats while regulating temperature and moisture levels. Composed of three layers—epidermis, dermis, and hypodermis—each with distinct functions and structures, it is a marvel of biological engineering. The outermost layer, the epidermis, acts as a shield against harmful UV rays, bacteria, and environmental pollutants. It is constantly renewing itself through a process called desquamation, shedding dead skin cells to reveal fresh, healthy skin underneath. Beneath the epidermis lies the dermis, a complex network of blood vessels, nerves, and connective tissue. This layer provides structural support, elasticity, and nourishment to the skin. It houses essential components like collagen and elastin, which maintain skin firmness and flexibility. Additionally, the dermis contains hair follicles, sweat glands, and sebaceous glands, contributing to skin hydration and regulation of body temperature. The deepest layer, the hypodermis, consists mainly of adipose tissue, serving as an energy reserve and providing insulation to the body.
+            Skin health is influenced by various factors, including genetics, lifestyle, and environmental exposure. Proper skincare practices play a crucial role in maintaining skin integrity and preventing common issues such as acne, eczema, and premature aging. Cleansing, moisturizing, and protecting the skin from UV radiation are fundamental steps in any skincare routine. Additionally, incorporating antioxidant-rich foods into one's diet, staying hydrated, and getting an adequate amount of sleep contribute to overall skin health. However, it's essential to recognize that individual skin types and concerns may require tailored approaches and specialized treatments. However, amidst the abundance of skincare products and treatments, it's essential to prioritize safety and efficacy. Many skincare trends and fads lack scientific evidence to support their claims and may even cause harm to the skin. Therefore, informed decision-making and consultation with dermatological professionals are crucial when navigating the vast landscape of skincare options. Ultimately, achieving healthy, glowing skin requires a holistic approach that considers both internal and external factors, emphasizing nourishment, protection, and self-care. By understanding the intricacies of skin biology and adopting mindful skincare practices, individuals can unlock the secrets to radiant, resilient skin that embodies vitality and well-being.
+        </p>
+    </div>
+</body>
+</html>

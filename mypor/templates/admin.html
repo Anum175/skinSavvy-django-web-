@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+    <style>
+        body {
+            background-color: #F4F4F4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #DC673E;
+            margin-top: 80px;
+        }
+        h2 {
+            color: #DC673E;
+        }
+        nav {
+            width: 100%;
+            background-color: #DC673E;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+        nav li {
+            list-style: none;
+        }
+        nav a {
+            color: #EAE5DA;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            font-size: 20px;
+        }
+        .container {
+            position: relative;
+            top: 10px; /* Adjust for the navbar height */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-height: 70vh; /* Set max height for scrolling */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #EAE5DA;
+            overflow-y: auto; /* Enable vertical scrolling */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 2px solid #000;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        td img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .add-user {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #DC673E;
+            color: #EAE5DA;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .add-user:hover {
+            background-color: #b85430;
+        }
+        pre {
+            background-color: #DC673E;
+            color: #EAE5DA;
+            font-weight: bold;
+            text-align: center;
+            width: 100px;
+            font-size: 20px;
+            margin: 20px auto 0;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+        pre a {
+            color: #EAE5DA;
+            text-decoration: none;
+        }
+        pre a:hover {
+            text-decoration: underline;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'admin_panel' %}">Dashboard</a></li>
+            <li><a href="{% url 'add_user' %}">+ ADD User</a></li>
+            <li><a href="{% url 'port' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <h1>Welcome to the admin panel</h1>
+    <h2>User Data Record</h2>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in ob %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {% if user.extra.img %}
+                            <img src="{{ user.extra.img.url }}" alt="User Image" width="100">
+                        {% else %}
+                            <img src="/static/images/default.png" alt="User Image">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'delete' id=user.pk %}" onclick="return confirm('Are you sure?')">Delete</a> |
+                        <a href="{% url 'update' id=user.pk %}">Update</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

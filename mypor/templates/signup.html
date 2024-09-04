@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <style>
+        body {
+            background-color: #DC673E;
+            font-family: sans-serif, Times-New-Roman;
+            margin-top:30px;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h2 {
+        margin-top:100px;
+            color: #EAE5DA;
+            text-align: center;
+        }
+        .typewriter {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #EAE5DA;
+        }
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid #EAE5DA;
+            font-size: 24px;
+            animation: typing 3s steps(40, end);
+            margin: 0; /* Added to remove default margin */
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        .signup-container {
+            display: flex;
+            align-items: center;
+            width: 800px;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #EAE5DA;
+            margins:10px;
+        }
+        .signup-image img {
+            max-width: 500px;
+            height: 390px;
+            border-radius: 10px;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border-radius: 10px;
+            gap: 10px;
+        }
+        .signup-form input {
+            padding: 10px 15px;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            background-color: #DC673E;
+            font-size: 16px;
+            outline: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .signup-form input::placeholder {
+            color: #EAE5DA;
+        }
+        .signup-form input:focus {
+            border-bottom-color: #DC673E;
+            background-color: #FFFFFF;
+        }
+        .signup-form button {
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background-color: #DC673E;
+            color: #EAE5DA;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 75%;
+        }
+        .signup-form button:hover {
+            background-color: #EAE5DA;
+            color: #DC673E;
+            border: 3px solid #DC763E;
+            width: 85%;
+        }
+        .signup-form a {
+            text-align: center;
+            color: #DC673E;
+            text-decoration: none;
+            margin-top: 10px;
+            background-color: #DC673E;
+            color: #EAE5DA;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .signup-form a:hover {
+            text-decoration: underline;
+            background-color: #EAE5DA;
+            color: #DC673E;
+        }
+        pre {
+            color: #DC763E;
+        }
+        h3 {
+            color: #DC673E;
+            font-size:22px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Welcome to skinSavvy</h2>
+        <div class="typewriter">
+            <h1>Unlock the secrets to radiant skin with our expert skincare tips.</h1>
+        </div>
+        <div class="signup-container">
+            <div class="signup-image">
+                <img src="https://images.unsplash.com/photo-1516274626895-055a99214f08?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="store">
+            </div>
+            <div class="signup-form">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <pre><h3> SIGNUP FORM </h3></pre>
+                    <input type="text" name="n" id="n" placeholder="Enter User name">
+                    <input type="text" name="fn" id="fn" placeholder="Enter First name">
+                    <input type="text" name="ln" id="ln" placeholder="Enter Last name">
+                    <input type="email" name="e" id="e" placeholder="Enter Email">
+                    <input type="password" name="p" id="p" placeholder="Enter Password">
+                    <input type="file" name="f" id="f" style="width:180px;">
+                    <button type="submit">Signup</button>
+                </form>
+                <pre>Already have an account? <a href="{% url 'login' %}">Login</a></pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
